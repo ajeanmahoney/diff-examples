@@ -23,7 +23,9 @@ informative:
   RFC8784:
 
 --- abstract
+
 <!-- this edit removed line breaks, and added a comma and quotes -->
+
 This document applies the Two-Week Principle (TWP) defined in RFC 9759 in the context of the long-running investigative model pioneered by the Mystery Inc. team,as seen in the animated documentary series, "Scooby-Doo". It outlines the observed cadence of mystery resolution, the strategic avoidance of adult supervision, and the repeatability of the Scooby Cycle within a fortnightly loop. The document aims to formalize the TWP and provide guidelines for implementation in adjacent problem-solving environments.
 
 --- middle
