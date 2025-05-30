@@ -109,9 +109,11 @@ promotes momentum and adaptability. Tools like Jira or Trello can track these
 sprint-based tasks, with biweekly retrospectives helping refine the process
 over time.
 
+<!-- some text updates below -->
+
 : Team roles should be clearly defined within this cycle -- Fred as project
-lead, Velma handling analysis and documentation, Daphne overseeing creative,
-and Shaggy and Scooby testing with user empathy (especially anything
+lead, Velma handling analysis and documentation, Daphne overseeing marketing,
+and Shaggy and Scooby performing QA (especially anything
 food-related!). TWP ensures everyone’s aligned, bottlenecks are caught early,
 and projects stay responsive to feedback or creative shifts.
 
