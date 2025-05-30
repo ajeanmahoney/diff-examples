@@ -66,6 +66,15 @@ communicated. Section 3 discusses more on compliance.
 * Snacks: Motivational units primarily in the form of Scooby Snacks or 3-foot
 tall sandwiches.
 
+<!-- This comment is placed between paragraphs
+
+Current:
+   escalating
+
+Perhaps:
+   increased
+-->
+
 * Ruh-roh moment: A point of escalating tension requiring improvisation.
 
 # Conversion Guidelines
