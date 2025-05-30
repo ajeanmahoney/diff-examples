@@ -52,7 +52,15 @@ regardless of original or intended value, must be converted to two weeks. TWP
 is formally defined in RFC9759.
 
 * Time Normalization Compliance (TNC): A system, organization, or individual
-is TNC-compliant if all time values are converted to "two weeks" before being
+is TNC-compliant if all time values <!-- this is what a comment looks like when it's added to the middle of a paragraph 
+
+Current:
+   are converted
+
+Perhaps:
+   are translated
+
+-->are converted to "two weeks" before being
 communicated. Section 3 discusses more on compliance.
 
 * Snacks: Motivational units primarily in the form of Scooby Snacks or 3-foot
