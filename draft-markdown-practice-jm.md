@@ -124,8 +124,8 @@ every two weeks. This includes confirming date accuracy, event metadata, and
 time zone consistency.
 
 Business Communications:
-: Applying TWP to business communications means sending regular, biweekly
-updates to partners, sponsors, and internal stakeholders. This might take the
+<!-- word and line break removed. Can you spot the missing word? -->
+: Applying TWP to business communications means sending biweekly updates to partners, sponsors, and internal stakeholders. This might take the
 form of newsletters, recap emails, or sync meetings.
 
 # Post-Quantum Effects
