@@ -30,10 +30,12 @@ This document applies the Two-Week Principle (TWP) defined in RFC 9759 in the co
 
 # Introduction
 
+<!-- the following addition of quotes is clearer -->
+
 The Scooby-Doo team (consisting of Fred Jones, Daphne Blake, Velma Dinkley,
 Norville "Shaggy" Rogers, and Scooby-Doo) has, over decades of episodic
 documentation, demonstrated a reliable pattern of encountering and resolving
-complex hauntings, heists, and hoaxes. The Two-Week Principle (TWP) [RFC9759] posits
+complex hauntings, heists, and hoaxes. The "Two-Week Principle" (TWP) [RFC9759] posits
 that very sufficiently complex mystery can be encountered, analyzed, and
 unmasked within two weeks, but only if snacks are adequately supplied.
 
