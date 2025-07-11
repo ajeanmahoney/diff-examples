@@ -2,6 +2,7 @@
 displayref-diffs.html
 displayref-diffs.txt
 displayref-diffs.pdf
+displayref-diffs.xml
 # Ignore .refcache
 .refcache/
 # Other
