@@ -1,0 +1,8 @@
+# Ignore xml2rfc outputs:
+displayref-diffs.html
+displayref-diffs.txt
+displayref-diffs.pdf
+# Ignore .refcache
+.refcache/
+# Other
+.DS_Store
