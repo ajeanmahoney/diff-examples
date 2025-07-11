@@ -1,0 +1,35 @@
+<reference anchor="DOI_10.1145_3133956.3134007" >
+  <front>
+    <title>Where the Wild Warnings Are: Root Causes of Chrome HTTPS Certificate Errors</title>
+    <author initials="M." surname="Acer" fullname="Mustafa Emre Acer">
+      <organization>Google Inc., Mountain View, CA, USA</organization>
+    </author>
+    <author initials="E." surname="Stark" fullname="Emily Stark">
+      <organization>Google Inc., Mountain View, CA, USA</organization>
+    </author>
+    <author initials="A." surname="Felt" fullname="Adrienne Porter Felt">
+      <organization>Google Inc., Mountain View, CA, USA</organization>
+    </author>
+    <author initials="S." surname="Fahl" fullname="Sascha Fahl">
+      <organization>Leibniz University Hannover, Hannover, Germany</organization>
+    </author>
+    <author initials="R." surname="Bhargava" fullname="Radhika Bhargava">
+      <organization>Purdue University, West Lafayette, IN, USA</organization>
+    </author>
+    <author initials="B." surname="Dev" fullname="Bhanu Dev">
+      <organization>International Institute of Information Technology, Hyderabad, Hyderabad, India</organization>
+    </author>
+    <author initials="M." surname="Braithwaite" fullname="Matt Braithwaite">
+      <organization>Google Inc., Mountain View, CA, USA</organization>
+    </author>
+    <author initials="R." surname="Sleevi" fullname="Ryan Sleevi">
+      <organization>Google Inc., Mountain View, CA, USA</organization>
+    </author>
+    <author initials="P." surname="Tabriz" fullname="Parisa Tabriz">
+      <organization>Google Inc., Mountain View, CA, USA</organization>
+    </author>
+    <date year="2017" month="October"/>
+  </front>
+  <seriesInfo name="Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications Security" value="pp. 1407-1420"/>
+  <seriesInfo name="DOI" value="10.1145/3133956.3134007"/>
+<refcontent>ACM</refcontent></reference>

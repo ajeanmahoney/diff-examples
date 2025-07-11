@@ -1,0 +1,15 @@
+<reference anchor="RFC5905" target="https://www.rfc-editor.org/info/rfc5905">
+  <front>
+    <title>Network Time Protocol Version 4: Protocol and Algorithms Specification</title>
+    <author fullname="D. Mills" initials="D." surname="Mills"/>
+    <author fullname="J. Martin" initials="J." role="editor" surname="Martin"/>
+    <author fullname="J. Burbank" initials="J." surname="Burbank"/>
+    <author fullname="W. Kasch" initials="W." surname="Kasch"/>
+    <date month="June" year="2010"/>
+    <abstract>
+      <t>The Network Time Protocol (NTP) is widely used to synchronize computer clocks in the Internet. This document describes NTP version 4 (NTPv4), which is backwards compatible with NTP version 3 (NTPv3), described in RFC 1305, as well as previous versions of the protocol. NTPv4 includes a modified protocol header to accommodate the Internet Protocol version 6 address family. NTPv4 includes fundamental improvements in the mitigation and discipline algorithms that extend the potential accuracy to the tens of microseconds with modern workstations and fast LANs. It includes a dynamic server discovery scheme, so that in many cases, specific server configuration is not required. It corrects certain errors in the NTPv3 design and implementation and includes an optional extension mechanism.</t>
+    </abstract>
+  </front>
+  <seriesInfo name="RFC" value="5905"/>
+  <seriesInfo name="DOI" value="10.17487/RFC5905"/>
+</reference>

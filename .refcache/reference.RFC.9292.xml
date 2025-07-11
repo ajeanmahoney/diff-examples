@@ -1,0 +1,13 @@
+<reference anchor="RFC9292" target="https://www.rfc-editor.org/info/rfc9292">
+  <front>
+    <title>Binary Representation of HTTP Messages</title>
+    <author fullname="M. Thomson" initials="M." surname="Thomson"/>
+    <author fullname="C. A. Wood" initials="C. A." surname="Wood"/>
+    <date month="August" year="2022"/>
+    <abstract>
+      <t>This document defines a binary format for representing HTTP messages.</t>
+    </abstract>
+  </front>
+  <seriesInfo name="RFC" value="9292"/>
+  <seriesInfo name="DOI" value="10.17487/RFC9292"/>
+</reference>

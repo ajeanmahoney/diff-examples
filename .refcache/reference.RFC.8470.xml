@@ -1,0 +1,14 @@
+<reference anchor="RFC8470" target="https://www.rfc-editor.org/info/rfc8470">
+  <front>
+    <title>Using Early Data in HTTP</title>
+    <author fullname="M. Thomson" initials="M." surname="Thomson"/>
+    <author fullname="M. Nottingham" initials="M." surname="Nottingham"/>
+    <author fullname="W. Tarreau" initials="W." surname="Tarreau"/>
+    <date month="September" year="2018"/>
+    <abstract>
+      <t>Using TLS early data creates an exposure to the possibility of a replay attack. This document defines mechanisms that allow clients to communicate with servers about HTTP requests that are sent in early data. Techniques are described that use these mechanisms to mitigate the risk of replay.</t>
+    </abstract>
+  </front>
+  <seriesInfo name="RFC" value="8470"/>
+  <seriesInfo name="DOI" value="10.17487/RFC8470"/>
+</reference>
