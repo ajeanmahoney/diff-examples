@@ -31,8 +31,10 @@ normative:
     display: BINARY
   RFC9110:
     display: HTTP
-  HTTP-CACHING: RFC9111
-  QUIC: RFC9000
+  RFC9111:
+    display: HTTP-CACHING
+  RFC9000:
+    display: QUIC
   TLS: RFC8446
   HPKE: RFC9180
 
@@ -376,7 +378,7 @@ using the function `encode(n, v)`, where `n` is the number of bytes and `v` is
 the integer value.  ASCII {{!ASCII=RFC0020}} encoding of a string `s` is
 indicated using the function `encode_str(s)`.
 
-Formats are described using notation from {{Section 1.3 of QUIC}}.  An extension
+Formats are described using notation from {{Section 1.3 of RFC9000}}.  An extension
 to that notation expresses the number of bits in a field using a simple
 mathematical function.
 
@@ -1311,7 +1313,7 @@ Including a `Date` header field in the response allows the Client to correct
 clock errors by retrying the same request using the value of the `Date` field
 provided by the Oblivious Gateway Resource.  The value of the `Date` field can
 be copied if the response is fresh, with an adjustment based on the `Age` field
-otherwise; see {{Section 4.2 of HTTP-CACHING}}.  When retrying a request, the
+otherwise; see {{Section 4.2 of RFC9111}}.  When retrying a request, the
 Client MUST create a fresh encryption of the modified request, using a new HPKE
 context.
 
