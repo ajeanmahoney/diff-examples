@@ -27,7 +27,8 @@ author:
 
 normative:
 
-  BINARY: RFC9292
+  RFC9292:
+    display: BINARY
   HTTP: RFC9110
   HTTP-CACHING: RFC9111
   QUIC: RFC9000
@@ -134,7 +135,7 @@ trusted relay service in a manner that mitigates the use of metadata such as IP
 address and connection information for client identification, with reasonable
 performance characteristics.  This document describes:
 
-1. an algorithm for encapsulating binary HTTP messages {{BINARY}} using Hybrid
+1. an algorithm for encapsulating binary HTTP messages {{RFC9292}} using Hybrid
    Public Key Encryption (HPKE; {{HPKE}}) to protect their contents,
 
 2. a method for forwarding these encapsulated messages between clients and an
@@ -495,7 +496,7 @@ MUST discard incorrectly encoded key configuration collections.
 
 # HPKE Encapsulation
 
-This document defines how a binary-encoded HTTP message {{BINARY}} is
+This document defines how a binary-encoded HTTP message {{RFC9292}} is
 encapsulated using HPKE {{HPKE}}.  Separate media types are defined to
 distinguish request and response messages:
 
@@ -598,7 +599,7 @@ Clients encapsulate a request, `request`, using values from a key configuration:
   `aead_id`, that the Client selects from those in the key configuration.
 
 The Client then constructs an Encapsulated Request, `enc_request`, from a binary
-encoded HTTP request {{BINARY}}, `request`, as follows:
+encoded HTTP request {{RFC9292}}, `request`, as follows:
 
 1. Construct a message header, `hdr`, by concatenating the values of `key_id`,
    `kem_id`, `kdf_id`, and `aead_id`, as one 8-bit integer and three 16-bit
@@ -684,7 +685,7 @@ encapsulate a response.
 ## Encapsulation of Responses {#response}
 
 Oblivious Gateway Resources generate an Encapsulated Response, `enc_response`,
-from a binary encoded HTTP response {{BINARY}}, `response`.  The Oblivious
+from a binary encoded HTTP response {{RFC9292}}, `response`.  The Oblivious
 Gateway Resource uses the HPKE receiver context, `rctxt`, as the HPKE context,
 `context`, as follows:
 
@@ -752,7 +753,7 @@ Media types are used to identify Encapsulated Requests and Responses; see
 Evolution of the format of Encapsulated Requests and Responses is supported
 through the definition of new formats that are identified by new media types.
 New media types might be defined to use similar encapsulation with a different
-HTTP message format than in {{BINARY}}; see {{repurposing}} for guidance on
+HTTP message format than in {{RFC9292}}; see {{repurposing}} for guidance on
 reusing this encapsulation.  Alternatively, a new encapsulation method might be
 defined.
 
@@ -760,7 +761,7 @@ defined.
 ## Repurposing the Encapsulation Format {#repurposing}
 
 The encrypted payload of an Oblivious HTTP request and response is a binary HTTP message
-{{BINARY}}.  The Client and Oblivious Gateway Resource agree on this encrypted
+{{RFC9292}}.  The Client and Oblivious Gateway Resource agree on this encrypted
 payload type by specifying the media type "message/bhttp" in the HPKE info
 string and HPKE export context string for request and response encryption,
 respectively.
@@ -1134,7 +1135,7 @@ improve traffic analysis.
 
 Clients and Oblivious Gateway Resources can use padding to reduce the
 effectiveness of traffic analysis.  Padding is a capability provided by binary
-HTTP messages; see {{Section 3.8 of BINARY}}.  If the encapsulation method
+HTTP messages; see {{Section 3.8 of RFC9292}}.  If the encapsulation method
 described in this document is used to protect a different message type (see
 {{repurposing}}), that message format might need to include padding support.
 Oblivious Relay Resources can also use padding for the same reason, but need to
