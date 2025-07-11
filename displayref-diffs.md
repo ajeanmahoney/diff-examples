@@ -29,7 +29,8 @@ normative:
 
   RFC9292:
     display: BINARY
-  HTTP: RFC9110
+  RFC9110:
+    display: HTTP
   HTTP-CACHING: RFC9111
   QUIC: RFC9000
   TLS: RFC8446
@@ -262,7 +263,7 @@ thereby limiting the use of Oblivious HTTP for generic applications;
 see {{server-responsibilities}} for more information.
 
 Many uses of HTTP benefit from being able to carry state between requests,
-such as with cookies ({{COOKIES}}), authentication ({{Section 11 of HTTP}}),
+such as with cookies ({{COOKIES}}), authentication ({{Section 11 of RFC9110}}),
 or even alternative services ({{?RFC7838}}).  Oblivious HTTP removes linkage
 at the transport layer, which is only useful for an application
 that does not carry state between requests.
@@ -311,7 +312,7 @@ that are necessary to realize the goals of the protocol.
 
 {::boilerplate bcp14-tagged}
 
-This document uses terminology from {{HTTP}} and defines several terms as
+This document uses terminology from {{RFC9110}} and defines several terms as
 follows:
 
 *[Client]: #dfn-client
@@ -330,7 +331,7 @@ Client:
 : A Client originates Oblivious HTTP requests.  A Client is also an HTTP client
   in two ways: for the Target Resource and for the Oblivious Relay
   Resource. However, when referring to the HTTP definition of client ({{Section
-  3.3 of HTTP}}), the term "HTTP client" is used; see {{http-usage}}.
+  3.3 of RFC9110}}), the term "HTTP client" is used; see {{http-usage}}.
   {: anchor="dfn-client"}
 
 Encapsulated Request:
@@ -791,12 +792,12 @@ request to the Oblivious Relay Resource, Clients MAY include additional
 fields. However, additional fields MUST be independent of the Encapsulated
 Request and MUST be fields that the Oblivious Relay Resource will remove before
 forwarding the Encapsulated Request towards the target, such as the Connection
-or Proxy-Authorization header fields {{HTTP}}.
+or Proxy-Authorization header fields {{RFC9110}}.
 
 The Client role in this protocol acts as an HTTP client both with respect to the
 Oblivious Relay Resource and the Target Resource.  For the request, the Clients
 makes to the Target Resource, this diverges from typical HTTP assumptions about
-the use of a connection (see {{Section 3.3 of HTTP}}) in that the request and
+the use of a connection (see {{Section 3.3 of RFC9110}}) in that the request and
 response are encrypted rather than sent over a connection.  The Oblivious Relay
 Resource and the Oblivious Gateway Resource also act as HTTP clients toward the
 Oblivious Gateway Resource and Target Resource respectively.
@@ -815,7 +816,7 @@ more information on relay responsibilities.
 
 When a response is received from the Oblivious Gateway Resource, the Oblivious
 Relay Resource forwards the response according to the rules of an HTTP proxy;
-see {{Section 7.6 of HTTP}}.  In case of timeout or error, the Oblivious Relay
+see {{Section 7.6 of RFC9110}}.  In case of timeout or error, the Oblivious Relay
 Resource can generate a response with an appropriate status code.
 
 In order to achieve the privacy and security goals of the protocol an Oblivious
@@ -823,7 +824,7 @@ Relay Resource also needs to observe the guidance in
 {{relay-responsibilities}}.
 
 An Oblivious Gateway Resource acts as a gateway for requests to the Target
-Resource (see {{Section 7.6 of HTTP}}).  The one exception is that any
+Resource (see {{Section 7.6 of RFC9110}}).  The one exception is that any
 information it might forward in a response MUST be encapsulated, unless it is
 responding to errors that do not relate to processing the contents of the
 encapsulated request; see {{errors}}.
@@ -838,7 +839,7 @@ that does not reveal information about the encapsulated response.
 
 An Oblivious Gateway Resource that does not receive a response can itself
 generate a response with an appropriate error status code (such as 504 (Gateway
-Timeout); see {{Section 15.6.5 of HTTP}}), which is then encapsulated in the
+Timeout); see {{Section 15.6.5 of RFC9110}}), which is then encapsulated in the
 same way as a successful response.
 
 In order to achieve the privacy and security goals of the protocol an Oblivious
@@ -854,7 +855,7 @@ the binary HTTP response format does support the inclusion of informational
 message is received.
 
 In particular, the Expect header field with 100-continue (see {{Section 10.1.1 of
-HTTP}}) cannot be used.  Clients MUST NOT
+RFC9110}}) cannot be used.  Clients MUST NOT
 construct a request that includes a 100-continue expectation; the Oblivious
 Gateway Resource MUST generate an error if a 100-continue expectation is
 received.
@@ -876,7 +877,7 @@ Encapsulated Response.  This might be because the Encapsulated Request is
 malformed or the Target Resource does not produce a response.  In either case
 the Oblivious Gateway Resource can generate a response with an appropriate error
 status code (such as 400 (Bad Request) or 504 (Gateway Timeout); see {{Section
-15.5.1 of HTTP}} and {{Section 15.6.5 of HTTP}}, respectively).  This response
+15.5.1 of RFC9110}} and {{Section 15.6.5 of RFC9110}}, respectively).  This response
 is encapsulated in the same way as a successful response.
 
 Errors in the encapsulation of requests mean that responses cannot be
@@ -990,7 +991,7 @@ Since Clients connect directly to the Oblivious Relay Resource instead of the Ta
 configurations wherein Clients make policy decisions about target connections,
 e.g., to apply certificate pinning, are incompatible with Oblivious HTTP.  In
 such cases, alternative technologies such as HTTP CONNECT
-({{Section 9.3.6 of HTTP}}) can be used. Applications could implement related
+({{Section 9.3.6 of RFC9110}}) can be used. Applications could implement related
 policies on key configurations and relay connections, though these might not
 provide the same properties as policies enforced directly on target
 connections. When this difference is relevant, applications can instead connect
@@ -1017,7 +1018,7 @@ include identifying information unless the Client can trust that this
 information is removed by the relay. A Client MAY include information only for
 the Oblivious Relay Resource in header fields identified by the Connection
 header field if it trusts the relay to remove these as required by {{Section
-7.6.1 of HTTP}}. The Client needs to trust that the relay does not replicate the
+7.6.1 of RFC9110}}. The Client needs to trust that the relay does not replicate the
 source addressing information in the request it forwards.
 
 Clients rely on the Oblivious Relay Resource to forward Encapsulated Requests
@@ -1034,7 +1035,7 @@ it sends a response to the Client that includes the content of the response
 from the Oblivious Gateway Resource.
 
 When forwarding a request, the relay MUST follow the forwarding rules in
-{{Section 7.6 of HTTP}}.  A generic HTTP intermediary implementation is suitable
+{{Section 7.6 of RFC9110}}.  A generic HTTP intermediary implementation is suitable
 for the purposes of serving an Oblivious Relay Resource, but additional care is
 needed to ensure that Client privacy is maintained.
 
@@ -1415,10 +1416,10 @@ requests and responses.
 
 HTTP messages contain content, which can use any media type.  In particular,
 requests are processed by an Oblivious Target Resource, which - as an HTTP
-resource - defines how content is processed; see {{Section 3.1 of HTTP}}.  HTTP
+resource - defines how content is processed; see {{Section 3.1 of RFC9110}}.  HTTP
 clients can also use resource identity and response content to determine how
 content is processed.  Consequently, the security considerations of {{Section 17
-of HTTP}} also apply to the handling of the content of these media types.
+of RFC9110}} also apply to the handling of the content of these media types.
 
 
 ## Separate Gateway and Target {#separate-target}
