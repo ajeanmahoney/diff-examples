@@ -37,7 +37,8 @@ normative:
     display: QUIC
   RFC8446:
     display: TLS
-  HPKE: RFC9180
+  RFC9180
+    display: HPKE
 
 informative:
 
@@ -140,7 +141,7 @@ address and connection information for client identification, with reasonable
 performance characteristics.  This document describes:
 
 1. an algorithm for encapsulating binary HTTP messages {{RFC9292}} using Hybrid
-   Public Key Encryption (HPKE; {{HPKE}}) to protect their contents,
+   Public Key Encryption (HPKE; {{RFC9180}}) to protect their contents,
 
 2. a method for forwarding these encapsulated messages between clients and an
    Oblivious Gateway Resource through a trusted Oblivious Relay Resource using
@@ -372,7 +373,7 @@ Target Resource:
   {: anchor="dfn-target"}
 
 This document includes pseudocode that uses the functions and conventions
-defined in {{HPKE}}.
+defined in {{RFC9180}}.
 
 Encoding an integer to a sequence of bytes in network byte order is described
 using the function `encode(n, v)`, where `n` is the number of bytes and `v` is
@@ -446,13 +447,13 @@ Key Identifier:
 HPKE KEM ID:
 
 : A 16 bit value that identifies the Key Encapsulation Method (KEM) used for the
-  identified key as defined in {{Section 7.1 of HPKE}} or [the HPKE KDF IANA
+  identified key as defined in {{Section 7.1 of RFC9180}} or [the HPKE KDF IANA
   registry](https://www.iana.org/assignments/hpke/hpke.xhtml#hpke-kem-ids).
 
 HPKE Public Key:
 
 : The public key used by the gateway. The length of the public key is `Npk`, which is
-  determined by the choice of HPKE KEM as defined in {{Section 4 of HPKE}}.
+  determined by the choice of HPKE KEM as defined in {{Section 4 of RFC9180}}.
 
 HPKE Symmetric Algorithms Length:
 
@@ -466,13 +467,13 @@ HPKE Symmetric Algorithms:
   <dl>
   <dt>HPKE KDF ID:</dt>
   <dd markdown="1">
-  A 16 bit HPKE KDF identifier as defined in {{Section 7.2 of HPKE}} or [the
+  A 16 bit HPKE KDF identifier as defined in {{Section 7.2 of RFC9180}} or [the
   HPKE KDF IANA
   registry](https://www.iana.org/assignments/hpke/hpke.xhtml#hpke-kdf-ids).
   </dd>
   <dt>HPKE AEAD ID:</dt>
   <dd markdown="1">
-  A 16 bit HPKE AEAD identifier as defined in {{Section 7.3 of HPKE}} or [the
+  A 16 bit HPKE AEAD identifier as defined in {{Section 7.3 of RFC9180}} or [the
   HPKE AEAD IANA
   registry](https://www.iana.org/assignments/hpke/hpke.xhtml#hpke-aead-ids).
   </dd>
@@ -501,7 +502,7 @@ MUST discard incorrectly encoded key configuration collections.
 # HPKE Encapsulation
 
 This document defines how a binary-encoded HTTP message {{RFC9292}} is
-encapsulated using HPKE {{HPKE}}.  Separate media types are defined to
+encapsulated using HPKE {{RFC9180}}.  Separate media types are defined to
 distinguish request and response messages:
 
 * An Encapsulated Request format defined in {{req-format}} is identified by the
@@ -552,7 +553,7 @@ KDF ID, HPKE AEAD ID, Encapsulated KEM Shared Secret, and HPKE-Protected
 Request.  The Key Identifier, HPKE KEM ID, HPKE KDF ID, and HPKE AEAD ID fields
 are defined in {{key-config}}.  The Encapsulated KEM Shared Secret is the output
 of the `Encap()` function for the KEM, which is `Nenc` bytes in length, as
-defined in {{Section 4 of HPKE}}.
+defined in {{Section 4 of RFC9180}}.
 
 
 ## Response Format {#res-format}
@@ -585,7 +586,7 @@ Encapsulated Response {
 That is, an Encapsulated Response contains a Nonce and an AEAD-Protected
 Response.  The Nonce field is either `Nn` or `Nk` bytes long, whichever is
 larger.  The `Nn` and `Nk` values correspond to parameters of the AEAD used in
-HPKE, which is defined in {{Section 7.3 of HPKE}} or [the HPKE AEAD IANA
+HPKE, which is defined in {{Section 7.3 of RFC9180}} or [the HPKE AEAD IANA
 registry](https://www.iana.org/assignments/hpke/hpke.xhtml#hpke-aead-ids).  `Nn`
 and `Nk` refer to the size of the AEAD nonce and key respectively, in bytes.
 
@@ -614,11 +615,11 @@ encoded HTTP request {{RFC9292}}, `request`, as follows:
    alternative message formats might use a different `info` value.
 
 3. Create a sending HPKE context by invoking `SetupBaseS()` ({{Section 5.1.1 of
-   HPKE}}) with the public key of the receiver `pkR` and `info`.  This yields
+   RFC9180}}) with the public key of the receiver `pkR` and `info`.  This yields
    the context `sctxt` and an encapsulation key `enc`.
 
 4. Encrypt `request` by invoking the `Seal()` method on `sctxt` ({{Section 5.2
-   of HPKE}}) with empty associated data `aad`, yielding ciphertext `ct`.
+   of RFC9180}}) with empty associated data `aad`, yielding ciphertext `ct`.
 
 5. Concatenate the values of `hdr`, `enc`, and `ct`, yielding an Encrypted
    Request `enc_request`.
@@ -661,10 +662,10 @@ process. To decapsulate an Encapsulated Request, `enc_request`:
    and `aead_id` as three 16-bit integers.
 
 3. Create a receiving HPKE context, `rctxt`, by invoking `SetupBaseR()`
-   ({{Section 5.1.1 of HPKE}}) with `skR`, `enc`, and `info`.
+   ({{Section 5.1.1 of RFC9180}}) with `skR`, `enc`, and `info`.
 
 4. Decrypt `ct` by invoking the `Open()` method on `rctxt` ({{Section 5.2 of
-   HPKE}}), with an empty associated data `aad`, yielding `request` or an error
+   RFC9180}}), with an empty associated data `aad`, yielding `request` or an error
    on failure. If decryption fails, the Oblivious Gateway Resource returns an
    error.
 
@@ -695,7 +696,7 @@ Gateway Resource uses the HPKE receiver context, `rctxt`, as the HPKE context,
 
 1. Export a secret, `secret`, from `context`, using the string "message/bhttp
    response" as the `exporter_context` parameter to `context.Export`; see
-   {{Section 5.3 of HPKE}}.  The length of this secret is `max(Nn, Nk)`, where
+   {{Section 5.3 of RFC9180}}.  The length of this secret is `max(Nn, Nk)`, where
    `Nn` and `Nk` are the length of AEAD key and nonce associated with `context`.
    Note: {{repurposing}} discusses how alternative message formats might use a
    different `context` value.
