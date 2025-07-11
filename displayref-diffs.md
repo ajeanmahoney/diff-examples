@@ -53,7 +53,8 @@ informative:
   HTTP3:
     =: RFC9114
     display: HTTP/3
-  COOKIES: RFC6265
+  RFC6265:
+    display: COOKIES
 
   DMS2004:
     title: "Tor: The Second-Generation Onion Router"
@@ -268,7 +269,7 @@ thereby limiting the use of Oblivious HTTP for generic applications;
 see {{server-responsibilities}} for more information.
 
 Many uses of HTTP benefit from being able to carry state between requests,
-such as with cookies ({{COOKIES}}), authentication ({{Section 11 of RFC9110}}),
+such as with cookies ({{RFC6265}}), authentication ({{Section 11 of RFC9110}}),
 or even alternative services ({{?RFC7838}}).  Oblivious HTTP removes linkage
 at the transport layer, which is only useful for an application
 that does not carry state between requests.
@@ -1005,7 +1006,7 @@ directly to the target at the cost of either privacy or performance.
 Clients cannot carry connection-level state between requests as they only
 establish direct connections to the relay responsible for the Oblivious Relay
 resource.  However, the content of requests might be used by a server to
-correlate requests.  Cookies {{COOKIES}} are the most obvious feature
+correlate requests.  Cookies {{RFC6265}} are the most obvious feature
 that might be used to correlate requests, but any identity information and
 authentication credentials might have the same effect.  Clients also need to
 treat information learned from responses with similar care when constructing
@@ -1490,7 +1491,7 @@ for ensuring that Client configurations are consistent between Clients.
 
 The content of requests or responses, if used in forming new requests, can be
 used to correlate requests.  This includes obvious methods of linking requests,
-like cookies {{COOKIES}}, but it also includes any information in either
+like cookies {{RFC6265}}, but it also includes any information in either
 message that might affect how subsequent requests are formulated. For example,
 {{FIELDING}} describes how interactions that are individually stateless can be
 used to build a stateful system when a Client acts on the content of a response.
