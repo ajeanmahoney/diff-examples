@@ -4,6 +4,7 @@ displayref-diffs.txt
 displayref-diffs.original
 displayref-diffs.pdf
 displayref-diffs.xml
+displayref-diffs-rfcdiff.html
 # Ignore .refcache
 .refcache/
 # Other
