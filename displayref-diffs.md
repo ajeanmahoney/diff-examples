@@ -44,14 +44,11 @@ informative:
 
   I-D.ietf-privacypass-key-consistency:
     display: CONSISTENCY
-  HTTP11:
-    =: RFC9112
+  RFC9112:
     display: HTTP/1.1
-  HTTP2:
-    =: RFC9113
+  RFC9113:
     display: HTTP/2
-  HTTP3:
-    =: RFC9114
+  RFC9114:
     display: HTTP/3
   RFC6265:
     display: COOKIES
@@ -1147,7 +1144,7 @@ described in this document is used to protect a different message type (see
 {{repurposing}}), that message format might need to include padding support.
 Oblivious Relay Resources can also use padding for the same reason, but need to
 operate at the HTTP layer since they cannot manipulate binary HTTP messages; for example,
-see {{Section 10.7 of HTTP2}} or {{Section 10.7 of HTTP3}}).
+see {{Section 10.7 of RFC9113}} or {{Section 10.7 of RFC9114}}).
 
 
 ## Server Responsibilities {#server-responsibilities}
@@ -1224,10 +1221,10 @@ universally applicable and suggestions for more targeted techniques.
 A Client or Oblivious Relay Resource MUST NOT automatically attempt to retry a
 failed request unless it receives a positive signal indicating that the request
 was not processed or forwarded. The HTTP/2 REFUSED_STREAM error code ({{Section
-8.1.4 of HTTP2}}), the HTTP/3 H3_REQUEST_REJECTED error code ({{Section 8.1 of
-HTTP3}}), or a GOAWAY frame with a low enough identifier (in either protocol
+8.1.4 of RFC9113}}), the HTTP/3 H3_REQUEST_REJECTED error code ({{Section 8.1 of
+RFC9114}}), or a GOAWAY frame with a low enough identifier (in either protocol
 version) are all sufficient signals that no processing occurred. HTTP/1.1
-{{HTTP11}} provides no equivalent signal.  Connection failures or interruptions
+{{RFC9112}} provides no equivalent signal.  Connection failures or interruptions
 are not sufficient signals that no processing occurred.
 
 The anti-replay mechanisms described in {{Section 8 of RFC8446}} are generally
