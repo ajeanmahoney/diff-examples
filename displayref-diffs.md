@@ -42,7 +42,8 @@ normative:
 
 informative:
 
-  CONSISTENCY: I-D.ietf-privacypass-key-consistency
+  I-D.ietf-privacypass-key-consistency:
+    display: CONSISTENCY
   HTTP11:
     =: RFC9112
     display: HTTP/1.1
@@ -1484,7 +1485,7 @@ creating small groupings of Clients that might weaken privacy protections.
 
 A specific method for a Client to acquire configurations is not included in this
 specification.  Applications using this design MUST provide accommodations to
-mitigate tracking using Client configurations.  {{CONSISTENCY}} provides options
+mitigate tracking using Client configurations.  {{I-D.ietf-privacypass-key-consistency}} provides options
 for ensuring that Client configurations are consistent between Clients.
 
 The content of requests or responses, if used in forming new requests, can be
