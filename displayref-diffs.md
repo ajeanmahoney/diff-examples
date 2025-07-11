@@ -37,7 +37,7 @@ normative:
     display: QUIC
   RFC8446:
     display: TLS
-  RFC9180
+  RFC9180:
     display: HPKE
 
 informative:
