@@ -35,7 +35,8 @@ normative:
     display: HTTP-CACHING
   RFC9000:
     display: QUIC
-  TLS: RFC8446
+  RFC8446:
+    display: TLS
   HPKE: RFC9180
 
 informative:
@@ -1207,7 +1208,7 @@ the effect of replays does not adversely affect Clients or resources.
 Encrypted requests can be copied and replayed by the Oblivious Relay
 resource. The threat model for Oblivious HTTP allows the possibility that an
 Oblivious Relay Resource might replay requests. Furthermore, if a Client sends
-an Encapsulated Request in TLS early data (see {{Section 8 of TLS}} and
+an Encapsulated Request in TLS early data (see {{Section 8 of RFC8446}} and
 {{!RFC8470}}), a network-based adversary might be able to cause the request to
 be replayed. In both cases, the effect of a replay attack and the mitigations
 that might be employed are similar to TLS early data.
@@ -1226,7 +1227,7 @@ version) are all sufficient signals that no processing occurred. HTTP/1.1
 {{HTTP11}} provides no equivalent signal.  Connection failures or interruptions
 are not sufficient signals that no processing occurred.
 
-The anti-replay mechanisms described in {{Section 8 of TLS}} are generally
+The anti-replay mechanisms described in {{Section 8 of RFC8446}} are generally
 applicable to Oblivious HTTP requests. The encapsulated keying material (or
 `enc`) can be used in place of a nonce to uniquely identify a request.  This
 value is a high-entropy value that is freshly generated for every request, so
